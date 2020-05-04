@@ -1,5 +1,12 @@
 """
 U-Net 是一种全卷积+上采样的结构，而且下采样和上采样是对应的
+改进方法：
+1，对于每一类地物的前景和背景训练一个二分类器
+2，将RGB与多光谱堆叠，增加通道
+3，使用vi及先验知识，例如颜色、形状
+4，消除local boundary effects，使拼接后的边缘更自然
+5，测试样本做augmentation，
+6，修改loss函数，使用binary_cross_entropy-jaccard逼近
 """
 
 import tensorflow as tf
